@@ -1,0 +1,5 @@
+jobs:
+  - name: build
+    image: busybox
+    steps:
+      - echo "Hello World!"

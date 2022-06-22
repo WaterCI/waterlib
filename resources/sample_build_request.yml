@@ -1,0 +1,9 @@
+type: BuildRequestFromRepo
+repo_url: "https://github.com/ololduck/waterci.git"
+reference: main
+repo_config:
+  jobs:
+    - name: test
+      image: busybox
+      steps:
+        - echo "hello world"
