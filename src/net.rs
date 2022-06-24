@@ -33,7 +33,7 @@ impl ExecutorMessage {
 pub enum ExecutorStatus {
     YetToRegister,
     Available,
-    Running,
+    Busy,
 }
 
 /// Represents the data contained in a build request.
