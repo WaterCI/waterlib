@@ -4,13 +4,14 @@ use anyhow::{Error, Result};
 use std::io::{BufRead, BufReader, Write};
 
 use crate::net::JobBuildRequestMessage;
+use serde::Deserialize;
 use std::process::{Command, Stdio};
 use std::sync::mpsc;
 use std::sync::mpsc::Sender;
 use std::thread;
 use tracing::{debug, info, instrument, trace};
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize)]
 pub struct SimpleDockerExecutorConfig {}
 
 #[derive(Debug)]
