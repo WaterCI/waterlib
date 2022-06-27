@@ -23,8 +23,10 @@ impl ExecutorMessage {
             &mut rmp_serde::Deserializer::new(reader),
         )?)
     }
-    pub fn write<T: Write>(&self, writer: T) -> anyhow::Result<()> {
-        self.serialize(&mut rmp_serde::Serializer::new(writer))?;
+    pub fn write<T: Write>(&self, mut writer: T) -> anyhow::Result<()> {
+        let mut buffer = Vec::new();
+        self.serialize(&mut rmp_serde::Serializer::new(buffer))?;
+        writer.write_all(&buffer);
         Ok(())
     }
 }
